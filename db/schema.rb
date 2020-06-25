@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20200624192807) do
     t.string  "address"
     t.string  "telephone"
     t.string  "email"
+    t.string  "category"
     t.integer "bride_id"
   end
 
