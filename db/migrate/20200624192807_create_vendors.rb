@@ -5,6 +5,7 @@ class CreateVendors < ActiveRecord::Migration
       t.string :address
       t.string :telephone
       t.string :email
+      t.integer :bride_id
     end
   end
 end

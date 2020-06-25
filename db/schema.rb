@@ -20,10 +20,11 @@ ActiveRecord::Schema.define(version: 20200624192807) do
   end
 
   create_table "vendors", force: :cascade do |t|
-    t.string "name"
-    t.string "address"
-    t.string "telephone"
-    t.string "email"
+    t.string  "name"
+    t.string  "address"
+    t.string  "telephone"
+    t.string  "email"
+    t.integer "bride_id"
   end
 
 end
