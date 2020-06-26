@@ -7,5 +7,6 @@ end
 use Rack::MethodOverride
 use BridesController
 use VendorsController
+use SessionsController
 
 run ApplicationController

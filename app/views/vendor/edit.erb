@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Wedding Checklist!</title>
-  </head>
-  <body>
 
     <h1>Edit Vendor</h1>
 
-    <form method="POST" action="vendors/<%=#{@vendor.id}%>">
-        <input type="hidden" value="PATCH" name="_method">
+    <form method="POST" action="vendors/<%={@vendor.id}%>">
+        <input id="hidden" type="hidden" value="PATCH" name="_method">
         <h3><label for="vendor_category">Category:</label></h3>
         <input type="text" name="vendor[category]" value="<%@vendor.category%>">
         <h3><label for="vendor_name">Name:</label></h3>
@@ -23,5 +16,4 @@
         <p></p>
         <p><input type="submit" value="Submit"></p>
     </form>
-    </body>
-</html>
+

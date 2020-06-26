@@ -10,9 +10,11 @@ class VendorsController < ApplicationController
     end
 
     post '/vendors' do #create the vendor
-        @vendor = Vendor.create(name: params[:vendor][:name],address: params[:vendor][:address],telephone: params[:vendor][:telephone], email: params[:vendor][:email],category: params[:vendor][:category])
+        #check to make sure someone is logged in. able to see vendor when logged out?
+        #check that some/all params are filled in.
+        @vendor = Vendor.create(name: params[:vendor][:name],address: params[:vendor][:address],telephone: params[:vendor][:telephone], email: params[:vendor][:email],category: params[:vendor][:category], bride_id: session[:bride_id])
 
-         redirect to "vendors/#{@vendor.id}"
+         redirect "/vendors/#{@vendor.id}"
     end
 
     get '/vendors/:id' do #display vendor based on :id in URL
@@ -20,21 +22,16 @@ class VendorsController < ApplicationController
         erb :'vendor/show'
     end
 
-    get '/vendor/:id/edit' do #show edit form of the vendor
+    get '/vendor/:id/edit' do #show edit form of the vendor. cannot edit unless vendor id match session id. 
         @vendor = Vendor.find_by_id(params[:id])
         erb :'vendor/edit'
     end
 
     patch '/vendor/:id' do #update vendor
         @vendor = Vendor.find_by_id(params[:id])
-        @vendor.name = params[:name]
-        @vendor.address = params[:address]
-        @vendor.telephone = params[:telephone]
-        @vendor.email = params[:email]
-        @vendor.category = params[:category]
-        @vendor.save
+        @vendor.update(params[:vendor])
 
-        redirect to "vendors/#{vendor.id}"
+        redirect to "/vendors/#{vendor.id}"
         
     end 
 

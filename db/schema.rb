@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20200624192807) do
 
   create_table "brides", force: :cascade do |t|
-    t.string "name"
+    t.string "username"
     t.string "email"
     t.string "password_digest"
   end

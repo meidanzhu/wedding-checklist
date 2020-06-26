@@ -1,10 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Wedding Checklist!</title>
-  </head>
-  <body>
     <form method="POST" action="/vendors">
 
     <h1>Vendors Checklist</h1><br>
@@ -12,26 +5,25 @@
     
       <h3><label for="category">Category:</label></h3>
       <select input type="text" name="vendor[category]" id="vendor_category">
-      <option value="wedding_planner"> Wedding Planner </option>
-      <option value="officiant"> Officiant </option>
-      <option value="venue"> Venue </option>
-      <option value="photographer"> Photographer</option>
-      <option value="musician"> Musician</option>
-      <option value="caterer"> Caterer</option>
-      <option value="florist"> Florist</option>
-      <option value="makeup_artist"> Makeup Artist</option></select>
+      <option value="Wedding Planner"> Wedding Planner </option>
+      <option value="Officiant"> Officiant </option>
+      <option value="Venue"> Venue </option>
+      <option value="Photographer"> Photographer</option>
+      <option value="Musician"> Musician</option>
+      <option value="Caterer"> Caterer</option>
+      <option value="Florist"> Florist</option>
+      <option value="Makeup Artist"> Makeup Artist</option></select>
 
-      <h3><label for="vendor_name">Name:</label></h3>
+      <h3><label for="vendor_name">Name: </label></h3>
       <input type="text" id="vendor_name"name="vendor[name]">
-      <h3><label for="vendor_address">Address:</label></h3>
+      <h3><label for="vendor_address">Address: </label></h3>
       <input type="text" id="vendor_address"name="vendor[address]">
-      <h3><label for="vendor_telephone">Telephone:</label></h3>
+      <h3><label for="vendor_telephone">Telephone: </label></h3>
       <input type="tel" id="vendor_telephone" name="vendor[telephone]"placeholder="123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required><br>
       <small>Format: 123-456-7890</small>
-      <h3><label for="vendor_email">Email:</label></h3>
+      <h3><label for="vendor_email">Email: </label></h3>
       <input type="email" id="vendor_email" name="vendor[email]">
       <p></p>
       <p><input type="submit" value="Submit"></p>
     </form>
-  </body>
-</html>
+

@@ -1,18 +1,23 @@
 class BridesController < ApplicationController
     
+    get '/signup' do #load the signup form
+        erb :'bride/new'
+    end
+    
+    post '/signup' do #create the user and log in
+        bride = Bride.new(params[:bride]) #creating user
+        if bride.save #check that params are all filled out and not using duplicate username. user doesn't exist already.
+            session[:bride_id]= bride.id #log user in
+            redirect to "/brides"
+        else 
+            @error = user.errors.full_messages.join(". ")
+            erb :'bride/new'
+        end
+    end
+
     get '/brides' do #get/show all brides
         @brides = Bride.all
         erb :'bride/index'
-    end
-
-    get '/brides/new' do #get the form to make a new bride
-        @vendors = Vendor.all
-        erb :'bride/new'
-    end
-
-    post '/brides' do #create the bride
-        
-         redirect to "brides/#{@bride.id}"
     end
 
     get '/brides/:id' do #display bride based on :id in URL

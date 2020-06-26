@@ -13,6 +13,16 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
+  helpers do #access to these methods in views
+    
+    def logged_in?
+      !!session[:bride_id]
+    end
 
-
+    def current_user #memoization
+      @current_user ||= Bride.find_by_id(session[:user_id])
+    end
+  end
+# helper methods
+#login? method and current_user method
 end

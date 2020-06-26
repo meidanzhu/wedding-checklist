@@ -1,1 +1,15 @@
-new page
+<form method="POST" action="/signup">
+
+<h1>Sign Up</h1><br>
+
+  <h3><label for="username">Username:</label></h3>
+  <input type="text" id="bride_username"name="bride[username]">
+  <h3><label for="email">Email:</label></h3>
+  <input type="email" id="bride_email" name="bride[email]">
+  <h3><label for="password">Password:</label></h3>
+  <input type="password" id="bride_password" name="bride[password]">
+  <p></p>
+  <%= @errors %>
+  <p><input type="submit" value="Sign Up"></p>
+
+</form>

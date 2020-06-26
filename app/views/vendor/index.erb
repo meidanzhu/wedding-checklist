@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Wedding Checklist!</title>
-  </head>
-  <body>
+ <h1>All Vendors</h1>
 
-    <h1>All Vendors</h1>
+  <% if logged_in?%>
+    <h3> You are Logged in <%= current_user.username %></h3>>
+    <a>
 
-    <%@vendors.each do |vendor|%>
-        <p>Category:<%=vendor.category%></p>
-        <p>Name:<%=vendor.name%></p>
-        <p>Address:<%=vendor.address%></p>
-        <p>Telephone:<%=vendor.telephone%></p>
-        <p>Email:<%=vendor.email%></p>
-        <%end%>
+  <%@vendors.each do |vendor|%>
+      <p>Category: <%=vendor.category%></p>
+      <p>Name: <%=vendor.name%></p>
+      <p>Address: <%=vendor.address%></p>
+      <p>Telephone: <%=vendor.telephone%></p>
+      <p>Email: <%=vendor.email%></p>
+      <%end%>
   
-  </body>
-</html>
