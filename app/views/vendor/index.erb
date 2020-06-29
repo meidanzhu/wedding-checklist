@@ -1,14 +1,25 @@
- <h1>All Vendors</h1>
+<div style="border: 1px solid black;color:black;padding:10px;margin: 10px;">
 
-  <% if logged_in?%>
-    <h3> You are Logged in <%= current_user.username %></h3>>
-    <a>
+<a href="/vendors/new">Add New Vendor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/vendors">View Your All Vendors</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-  <%@vendors.each do |vendor|%>
-      <p>Category: <%=vendor.category%></p>
-      <p>Name: <%=vendor.name%></p>
-      <p>Address: <%=vendor.address%></p>
-      <p>Telephone: <%=vendor.telephone%></p>
-      <p>Email: <%=vendor.email%></p>
-      <%end%>
+<%if logged_in?%>
+<a href = "/brides/<%=current_bride.id%>"><%= current_bride.username %>'s Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href = "/logout">Logout</a>
+<%else%>
+<a href="/login">Login</a>
+
+<%end%>
+
+</div>
+   
+
+<h1>View All Your Vendors</h1>
+
+  <%@current_bride.vendors.each do |bride_vendor|%>
+  <h2><%=bride_vendor.category%></a>
+  <p><a href= "/vendors/<%=bride_vendor.id%>">view details</a></p></h2>
+  <%end%>
+
+      
   

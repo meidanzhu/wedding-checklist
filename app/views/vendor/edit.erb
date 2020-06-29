@@ -1,19 +1,29 @@
 
     <h1>Edit Vendor</h1>
 
-    <form method="POST" action="vendors/<%={@vendor.id}%>">
-        <input id="hidden" type="hidden" value="PATCH" name="_method">
-        <h3><label for="vendor_category">Category:</label></h3>
-        <input type="text" name="vendor[category]" value="<%@vendor.category%>">
-        <h3><label for="vendor_name">Name:</label></h3>
-        <input type="text" name="vendor[name]" value="<%@vendor.name%>">
-        <h3><label for="vendor_address">Address:</label></h3>
-        <input type="text" name="vendor[address]" value="<%@vendor.address%>">
-        <h3><label for="vendor_telephone">Telephone:</label></h3>
-        <input type="text" name="vendor[telephone]" value="<%@vendor.telephone%>">
-        <h3><label for="vendor_email">Email:</label></h3>
-        <input type="text" name="vendor[email]" value="<%@vendor.email%>">
-        <p></p>
-        <p><input type="submit" value="Submit"></p>
+    <form method="POST" action="/vendors/<%=@vendor.id%>">
+      <input type="hidden" value="PATCH" name="_method">
+      <h3><label for="category">Category:</label></h3>
+      <select input type="text" name="vendor[category]" value="<%@vendor.category%>">
+      <option value="Wedding Planner"> Wedding Planner </option>
+      <option value="Officiant"> Officiant </option>
+      <option value="Venue"> Venue </option>
+      <option value="Photographer"> Photographer</option>
+      <option value="Musician"> Musician</option>
+      <option value="Caterer"> Caterer</option>
+      <option value="Florist"> Florist</option>
+      <option value="Makeup Artist"> Makeup Artist</option></select>
+      
+      <h3><label for="vendor_name">Name:</label></h3>
+      <input type="text" name="vendor[name]" value="<%@vendor.name%>">
+      <h3><label for="vendor_address">Address:</label></h3>
+      <input type="text" name="vendor[address]" value="<%@vendor.address%>">
+      <h3><label for="vendor_telephone">Telephone:</label></h3>
+      <input type="text" name="vendor[telephone]" value="<%@vendor.telephone%>">
+      <h3><label for="vendor_email">Email:</label></h3>
+      <input type="text" name="vendor[email]" value="<%@vendor.email%>">
+      <p></p>
+      <p><input type="submit" value="Edit"></p>
+    
     </form>
-
+   

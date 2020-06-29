@@ -1,1 +1,24 @@
-edit
+<div style="border: 1px solid black;color:black;padding:10px;margin: 10px;">
+    <%if @bride == current_bride%>
+        <a href="/vendors/new">Add New Vendor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/vendors">View Your All Vendors</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%if logged_in?%>
+        <a href = "/brides/<%=current_bride.id%>"><%= current_bride.username %>'s Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href = "/logout">Logout</a>
+    <%else%>
+        <a href="/login">Login</a>
+    <%end%>
+    <%end%>
+</div>
+
+<h1> Edit Bride</h1>
+
+<form method="POST" action="/brides/<%=@bride.id%>">
+<input type="hidden" value="PATCH" name="_method">
+    <label for="username">Username:</label>
+    <input type="text" name="bride[username]" value= "<%=@bride.username%>">
+    <label for="Email">Email:</label>
+    <input type="email" name="bride[email]" value= "<%=@bride.email%>">
+    <p></p>
+    <p><input type="submit" value="Submit"></p>
+</form>

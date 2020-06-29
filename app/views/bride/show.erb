@@ -1,1 +1,26 @@
-show page
+<div style="border: 1px solid black;color:black;padding:10px;margin: 10px;">
+    <%if @bride == current_bride%>
+        <a href = "/brides/<%=@bride.id%>/edit">Edit Account</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/vendors/new">Add New Vendor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="/vendors">View Your All Vendors</a>&nbsp;&nbsp;&nbsp;&nbsp;
+    <%if logged_in?%>
+        <a href = "/logout">Logout</a>
+    <%else%>
+        <a href="/login">Login</a>
+    <%end%>
+    <%end%>
+</div>
+
+<h1><p style="color:pink">Welcome, <%= current_bride.username %></p></h1>
+    <p>Perhaps the most important part of wedding planning is building your vendor team—hiring the group of professionals who will make your vision a reality. As you plan for your big day, the best way to navigate all the tasks and stress is by creating a wedding timeline that includes all the booking and organizing you have to do. To help you get prepared and on top of your schedule, we have mapped out a wedding planning checklist for booking your wedding vendors.</p>
+
+<h1><%=@bride.username%>'s Vendors</h1>
+    <%if !@bride.vendors.empty?%>
+        <%@bride.vendors.each do |bride_vendor|%>
+    <h3><span>&#9744;</span><%=bride_vendor.category%>
+    <%end%>
+    <%else%>
+        <h3>You have not add any vendors yet.</h3>
+    <%end%>
+
+

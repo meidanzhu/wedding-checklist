@@ -1,13 +1,32 @@
-<h1>Your Vendor</h1>
+<div style="border: 1px solid black;color:black;padding:10px;margin: 10px;">
 
-    <h2>Category: <%=@vendor.category%></h2>
-    <h2>Name: <%=@vendor.name%></h2>
-    <h2>Address: <%=@vendor.address%></h2>
-    <h2>Telephone: <%=@vendor.telephone%></h2>
-    <h2>Email: <%=@vendor.email%></h2>
+<a href="/vendors/new">Add New Vendor</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/vendors">View Your All Vendors</a>&nbsp;&nbsp;&nbsp;&nbsp;
 
-<!--Delete form 
-<form method="POST" action="/vendors/<%={@vendor.id}%>">
-    <input id="hidden" type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete Vendor">
-</form>   -->
+<%if logged_in?%>
+<a href = "/brides/<%=current_bride.id%>"><%= current_bride.username %>'s Profile</a>&nbsp;&nbsp;&nbsp;&nbsp;
+<a href = "/logout">Logout</a>
+<%else%>
+<a href="/login">Login</a>
+<%end%>
+
+</div>
+
+
+    <h1>Your Vendor</h1>
+    <p><a href="/vendors/<%= @vendor.id %>/edit">Edit This Vendor</a></p>
+
+        <h2>Category: <%=@vendor.category%></h2>
+        <h2>Name: <%=@vendor.name%></h2>
+        <h2>Address: <%=@vendor.address%></h2>
+        <h2>Telephone: <%=@vendor.telephone%></h2>
+        <h2>Email: <%=@vendor.email%></h2>
+
+<%if @vendor.bride == current_bride%>
+    <form method="POST" action="/vendors/<%=@vendor.id%>">
+        <input id="hidden" type="hidden" name="_method" value="delete">
+        <input type="submit" value="Delete Vendor">
+    </form> 
+
+    
+<%end%>

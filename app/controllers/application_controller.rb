@@ -9,8 +9,14 @@ class ApplicationController < Sinatra::Base
     set :session_secret, ENV['SESSION_SECRET']
   end
 
+  not_found do
+    status 404
+    erb :error
+   end 
+
   get "/" do
-    erb :welcome
+      erb :'bride/index'
+     
   end
 
   helpers do #access to these methods in views
@@ -19,8 +25,12 @@ class ApplicationController < Sinatra::Base
       !!session[:bride_id]
     end
 
-    def current_user #memoization
-      @current_user ||= Bride.find_by_id(session[:user_id])
+    def current_bride #memoization
+      if @current_bride
+          @current_bride
+      else 
+        @current_bride = Bride.find_by_id(session[:bride_id])
+      end
     end
   end
 # helper methods
