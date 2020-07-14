@@ -25,6 +25,12 @@ class ApplicationController < Sinatra::Base
       !!session[:bride_id]
     end
 
+    def redirect_if_not_logged_in
+      if !logged_in?
+        redirect to '/' 
+      end 
+    end
+
     def current_bride #memoization
       if @current_bride
           @current_bride
